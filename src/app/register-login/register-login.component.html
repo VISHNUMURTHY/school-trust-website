@@ -1,0 +1,14 @@
+<div class="register-login-div">
+    <div class="background-cover">
+        Discover why more than 10 million students and educators use Course Hero.
+
+        ವಿಷ್ಣು
+    </div>
+    <div *ngIf="path === '/login'" class="register-login">
+        <app-login></app-login>
+    </div>
+
+    <div *ngIf="path === '/register'" class="register-login">
+        <app-register></app-register>
+    </div>
+</div>

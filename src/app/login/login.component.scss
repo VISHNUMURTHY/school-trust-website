@@ -1,0 +1,107 @@
+@mixin inline-animation($duration) {
+    $name: inline-#{unique-id()};
+
+    @keyframes #{$name} {
+        @content;
+    }
+
+    animation-name: $name;
+    animation-duration: $duration;
+    animation-iteration-count: infinite;
+}
+
+.form-class {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.form-mat-class {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.forgot-password {
+    width: auto;
+    display: flex;
+    justify-content: flex-end;
+    color: blue;
+    padding-bottom: 8px;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.forgot-password>div {
+    cursor: pointer;
+}
+
+.mat-button-div>button {
+    background-color: blue;
+    color: white;
+}
+
+.form-button {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.form-button>button {
+    color: blue;
+}
+
+.submit-button {
+    background-color: blue;
+    color: white;
+    font-size: larger;
+}
+
+.align-items-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.resend-otp {
+    color: blue;
+    float: right;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.sign-up-div {
+    margin-top: 16px;
+}
+
+a.sign-up {
+    color: magenta;
+    font-size: larger;
+    text-decoration: none;
+
+    @include inline-animation(2s) {
+        from {
+            color: magenta
+        }
+
+        to {
+            color: white
+        }
+    }
+
+    &:hover{
+        @include inline-animation(0s) {
+            from {
+                color: magenta
+            }
+    
+            to {
+                color: white
+            }
+        }
+    }
+}
