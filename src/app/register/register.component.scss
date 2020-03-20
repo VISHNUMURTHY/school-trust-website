@@ -1,0 +1,30 @@
+.form-mat-class {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.resend-otp {
+    color: blue;
+    float: right;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.submit-button {
+    background-color: blue;
+    color: white;
+    font-size: larger;
+    width: 100%;
+}
+
+.login-div {
+    margin-top: 16px;
+}
+
+a.login {
+    font-size: larger;
+    text-decoration: none;
+    color: blue;
+}

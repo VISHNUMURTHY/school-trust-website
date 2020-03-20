@@ -1,0 +1,21 @@
+.register-login-div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.background-cover{
+    width: 50%;
+    background-image: url('../../assets/img/school.jpg');
+}
+
+.register-login {
+    width: auto;
+    margin-left: 6%;
+    border: black solid 1px;
+    padding: 20px;
+    min-width: 32%;
+    box-shadow: -3px 0px 5px rgba(0,0,0,0.5), 0px 1px 3px rgba(0,0,0,0.5), 0px 6px 7px rgba(0,0,0,0.75);
+    border-radius: 5px;
+}
