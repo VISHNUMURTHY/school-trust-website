@@ -33,12 +33,10 @@
         <mat-form-field class="form-mat-class">
             <input matInput [type]="hide ? 'text' : 'password'" placeholder="Set Password" formControlName="password"
                 required web-BlockCopyPaste>
-            <button matSuffix mat-icon-button (click)="hide = !hide">
-                <mat-icon>{{hide? 'visibility':'visibility_off'}}</mat-icon>
-            </button>
-            <button mat-icon-button matSuffix>
-                <mat-icon matTooltip="{{passwordTooltip}}" matTooltipClass="passwordInfo">info</mat-icon>
-            </button>
+                <div class="icons-div" matSuffix>
+                    <mat-icon class="icons" (click)="hide = !hide">{{hide? 'visibility':'visibility_off'}}</mat-icon>
+                    <mat-icon class="icons" matTooltip="{{passwordTooltip}}" matTooltipClass="passwordInfo">info</mat-icon>
+                </div>
             <mat-error *ngFor="let validation of errorMessages.password">
                 <mat-error class="error-message"
                     *ngIf="registerForm.get('password').hasError(validation.type) && (registerForm.get('password').dirty || registerForm.get('password').touched)">

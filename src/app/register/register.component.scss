@@ -3,6 +3,18 @@
     margin-bottom: 5px;
 }
 
+.icons-div{
+    justify-content: space-between;
+    display: flex;
+}
+
+.icons{
+    font-size: 14px;
+    height: 14px;
+    padding: 0 2px;
+    cursor: pointer;
+}
+
 .resend-otp {
     color: blue;
     float: right;
