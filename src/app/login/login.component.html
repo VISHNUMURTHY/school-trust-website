@@ -3,22 +3,25 @@
 
     <mat-form-field class="form-mat-class">
         <span *ngIf="usernameSuffix" matPrefix>+91 &nbsp;</span>
-        <input matInput type="text" placeholder="Enter Email/Mobile Number" formControlName="username" required #userFocus>
+        <input matInput type="text" placeholder="Enter Email/Mobile Number" formControlName="username" required
+            #userFocus>
         <mat-error *ngFor="let validation of errorMessages.username">
-            <mat-error class="error-message" *ngIf="loginForm.get('username').hasError(validation.type) && (loginForm.get('username').dirty || loginForm.get('username').touched)">{{validation.message}}</mat-error>
+            <mat-error class="error-message"
+                *ngIf="loginForm.get('username').hasError(validation.type) && (loginForm.get('username').dirty || loginForm.get('username').touched)">
+                {{validation.message}}</mat-error>
         </mat-error>
     </mat-form-field>
 
     <mat-form-field class="form-mat-class">
         <input matInput [type]="hide ? 'text' : 'password'" placeholder="Password" formControlName="password" required>
-        <button matSuffix mat-icon-button (click)="hide = !hide">
-            <mat-icon>{{hide? 'visibility':'visibility_off'}}</mat-icon>
-        </button>
-        <button mat-icon-button matSuffix>
-            <mat-icon matTooltip="{{passwordTooltip}}" matTooltipClass="passwordInfo">info</mat-icon>
-        </button>
+        <div class="icons-div" matSuffix>
+            <mat-icon class="icons" (click)="hide = !hide">{{hide? 'visibility':'visibility_off'}}</mat-icon>
+            <mat-icon class="icons" matTooltip="{{passwordTooltip}}" matTooltipClass="passwordInfo">info</mat-icon>
+        </div>
         <mat-error *ngFor="let validation of errorMessages.password">
-            <mat-error class="error-message" *ngIf="loginForm.get('password').hasError(validation.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">{{validation.message}}</mat-error>
+            <mat-error class="error-message"
+                *ngIf="loginForm.get('password').hasError(validation.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+                {{validation.message}}</mat-error>
         </mat-error>
     </mat-form-field>
 
@@ -29,14 +32,13 @@
     <button mat-raised-button type="submit" class="submit-button" [disabled]="!loginForm.valid">Login</button>
 </form>
 
-<form *ngIf="forgotFlag && loginFlag" [formGroup]="forgotForm" (ngSubmit)="resetPassword(forgotForm.value)" class="form-class">
+<form *ngIf="forgotFlag && !loginFlag" [formGroup]="forgotForm" (ngSubmit)="resetPassword(forgotForm.value)"
+    class="form-class">
 
     <mat-form-field class="form-mat-class">
         <span *ngIf="usernameSuffix" matPrefix>+91 &nbsp;</span>
         <input matInput type="text" placeholder="Enter Email/Mobile Number" formControlName="username" required>
-        <button matSuffix mat-icon-button (click)="edit()">
-            <mat-icon>mode_edit</mat-icon>
-        </button>
+        <mat-icon matSuffix class="icons" (click)="edit()">mode_edit</mat-icon>
     </mat-form-field>
 
     <div class="align-items-column">
@@ -48,21 +50,23 @@
         <mat-form-field class="form-mat-class">
             <input matInput type="text" placeholder="Enter OTP" formControlName="otp" maxlength="6" required>
             <mat-error *ngFor="let validation of errorMessages.otp">
-                <mat-error class="error-message" *ngIf="forgotForm.get('otp').hasError(validation.type) && (forgotForm.get('otp').dirty || forgotForm.get('otp').touched)">{{validation.message}}</mat-error>
+                <mat-error class="error-message"
+                    *ngIf="forgotForm.get('otp').hasError(validation.type) && (forgotForm.get('otp').dirty || forgotForm.get('otp').touched)">
+                    {{validation.message}}</mat-error>
             </mat-error>
         </mat-form-field>
 
         <mat-form-field class="form-mat-class">
             <input matInput [type]="hide ? 'text' : 'password'" placeholder="Set Password" formControlName="password"
                 required>
-            <button matSuffix mat-icon-button (click)="hide = !hide">
-                <mat-icon>{{hide? 'visibility':'visibility_off'}}</mat-icon>
-            </button>
-            <button mat-icon-button matSuffix>
-                <mat-icon matTooltip="{{passwordTooltip}}" matTooltipClass="passwordInfo">info</mat-icon>
-            </button>
+            <div class="icons-div" matSuffix>
+                <mat-icon class="icons" (click)="hide = !hide">{{hide? 'visibility':'visibility_off'}}</mat-icon>
+                <mat-icon class="icons" matTooltip="{{passwordTooltip}}" matTooltipClass="passwordInfo">info</mat-icon>
+            </div>
             <mat-error *ngFor="let validation of errorMessages.password">
-                <mat-error class="error-message" *ngIf="forgotForm.get('password').hasError(validation.type) && (forgotForm.get('password').dirty || forgotForm.get('password').touched)">{{validation.message}}</mat-error>
+                <mat-error class="error-message"
+                    *ngIf="forgotForm.get('password').hasError(validation.type) && (forgotForm.get('password').dirty || forgotForm.get('password').touched)">
+                    {{validation.message}}</mat-error>
             </mat-error>
         </mat-form-field>
     </div>

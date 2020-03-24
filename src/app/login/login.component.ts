@@ -1,6 +1,9 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { UsernameValidator, ValidationMessages } from '../register-login/form-validations.ts/validations';
+import { LoginUser } from '../model/login.model';
+import { SharedService } from '../shared/services/shared.service';
+import { LoginService } from '../service/login/login.service';
 
 @Component({
   selector: 'app-login',
@@ -15,13 +18,13 @@ export class LoginComponent implements OnInit {
   forgotFlag = false;
   hide = false;
   usernameSuffix = false;
-  loginForm: any;
-  forgotForm: any;
+  loginForm: FormGroup;
+  forgotForm: FormGroup;
 
   errorMessages = ValidationMessages.validationErrorMessages;
   passwordTooltip = 'Password must have minimum 8 characters length & contains Capital Letter, Small Letter, Number and Special Character [!@#$%&*]';
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private sharedService: SharedService, private loginService: LoginService) {
     this.initializeForms();
   }
 
@@ -64,6 +67,7 @@ export class LoginComponent implements OnInit {
       this.userFocus.nativeElement.focus();
     } else {
       this.forgotFlag = true;
+      this.loginFlag = false;
       this.hide = false;
       this.forgotForm.controls['username'].setValue(this.loginForm.get('username').value);
       this.forgotForm.controls['username'].disable();
@@ -73,18 +77,20 @@ export class LoginComponent implements OnInit {
 
   edit() {
     this.forgotFlag = false;
+    this.loginFlag = true;
     this.loginForm.controls['password'].reset();
   }
 
-  sendOtp(){
+  sendOtp() {
 
   }
 
-  login(formValue: FormBuilder){
-
+  login(formValue: LoginUser) {
+    formValue.password = this.sharedService.base64Encode(formValue.password);
+    this.loginService.login(formValue);
   }
 
-  resetPassword(formValue){
+  resetPassword(formValue) {
 
   }
 }

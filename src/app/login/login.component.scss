@@ -41,6 +41,18 @@
     color: white;
 }
 
+.icons-div {
+    justify-content: space-between;
+    display: flex;
+}
+
+.icons {
+    font-size: 14px;
+    height: 14px;
+    padding: 0 2px;
+    cursor: pointer;
+}
+
 .form-button {
     height: 10%;
     width: 100%;
