@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { UsernameValidator, ValidationMessages } from '../register-login/form-validations.ts/validations';
+import { UsernameValidator, ValidationMessages } from '../validations/form-validations.ts/validations';
 import { LoginUser } from '../model/login.model';
 import { SharedService } from '../shared/services/shared.service';
 import { LoginService } from '../service/login/login.service';

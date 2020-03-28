@@ -7,7 +7,7 @@
     left: 0;
     right: 0px;
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
     vertical-align: middle;
@@ -21,4 +21,28 @@
     margin: 0px;
     padding: 0px;
     left: 0;
+  }
+
+  .flex-spacer{
+    flex-grow: 1;
+  }
+
+  button.mat-menu-item{
+    height: 32px;
+    line-height: 0;
+  }
+
+  .display-menu{
+    display: none;
+  }
+
+  @media screen and (max-width: 700px){
+    .display-links{
+      display: none;
+    }
+
+    .display-menu{
+      padding: 4px;
+      display: flex;
+    }
   }

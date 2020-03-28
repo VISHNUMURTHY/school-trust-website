@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ValidationMessages, UsernameValidator } from '../register-login/form-validations.ts/validations';
+import { ValidationMessages, UsernameValidator } from '../validations/form-validations.ts/validations';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit {
         Validators.required, UsernameValidator.validUsername
       ])],
       otp: ['', Validators.compose([
-        Validators.required, Validators.pattern('^[0-9]+$'), Validators.minLength(6)
+        Validators.required, Validators.pattern('^[0-9]+$'), Validators.minLength(6), Validators.maxLength(6)
       ])],
       password: ['', Validators.compose([
         Validators.required, Validators.minLength(8), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%&*])[A-Za-z0-9!@#$%&*]{8,}$')

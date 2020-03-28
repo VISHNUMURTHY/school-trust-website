@@ -1,0 +1,74 @@
+<div class="panel-viewer">
+    <mat-accordion>
+        <mat-expansion-panel expanded='true'>
+            <mat-expansion-panel-header class="expansion-panel-header">
+                <mat-panel-title>
+                    Complaint/Query
+                </mat-panel-title>
+                <mat-panel-description>
+                    Provide your complaint or query details below
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <ng-template matExpansionPanelContent>
+                <form [formGroup]="queryForm" class="form-class">
+                    <mat-form-field>
+                        <input matInput type="text" formControlName="name" placeholder="Full Name" required>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput type="text" formControlName="email" placeholder="Email ID" required>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Mobile No.</mat-label>
+                        <input matInput type="text" formControlName="countryCode" required>
+                        <input matInput type="text" formControlName="phone" required>
+                    </mat-form-field>
+                </form>
+            </ng-template>
+            <mat-action-row class="action-row">
+                <button mat-button type="submit" [disabled]="!queryForm.valid" (click)="query(queryForm.value)" class="submit-button">Submit</button>
+            </mat-action-row>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header class="expansion-panel-header">
+                <mat-panel-title>
+                    Feedback
+                </mat-panel-title>
+                <mat-panel-description>
+                    Help us to improve by leaving your valuable feedback below
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <ng-template matExpansionPanelContent>
+                <form [formGroup]="feedbackForm" class="form-class">
+                    <mat-form-field>
+                        <input matInput type="text" formControlName="name" required placeholder="Full Name" required>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput type="text" formControlName="email" placeholder="Email ID" required>
+                    </mat-form-field>
+                </form>
+            </ng-template>
+            <mat-action-row class="action-row">
+                <button mat-button type="submit" [disabled]="!feedbackForm.valid" (click)="feedback(feedbackForm.value)" class="submit-button">Submit</button>
+            </mat-action-row>
+        </mat-expansion-panel>
+    </mat-accordion>
+
+    <div class="contact-details">
+        <div class="contact-details-header">
+            <div class="contact-title">
+                Contact Details
+            </div>
+            <mat-chip-list>
+                <mat-chip color="primary" selected>Recommended</mat-chip>
+            </mat-chip-list>
+        </div>
+        <div class="contact-details-content">
+            <p>Connect over phone : 1234567890</p>
+            <p>Connect over mail : abcdd@gmail.com</p>
+        </div>
+    </div>
+</div>

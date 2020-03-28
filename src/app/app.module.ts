@@ -14,6 +14,9 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { APP_INTERCEPTORS } from './interceptors/interceptors';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { DonateComponent } from './donate/donate.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { APP_INTERCEPTORS } from './interceptors/interceptors';
     FooterComponent,
     RegisterLoginComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    AboutUsComponent,
+    ContactUsComponent,
+    DonateComponent
   ],
   imports: [
     BrowserModule,
