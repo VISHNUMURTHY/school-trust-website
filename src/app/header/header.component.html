@@ -1,6 +1,29 @@
 <header class="header">
 	<img class="logo" src="../../assets/images/blank.png" alt="Logo" />
-
-	<a mat-raised-button routerLink="login">Login/Register</a>
-
+	<div class="flex-spacer"></div>
+	<div class="display-links">
+		<a mat-button routerLink="about-us">About Us</a>
+		<a mat-button routerLink="contact-us">Contact Us</a>
+		<a mat-button routerLink="donate">Donate</a>
+		<a mat-button routerLink="login">Login/Register</a>
+	</div>
+	<div class="display-menu">
+		<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu List">
+			<mat-icon>menu</mat-icon>
+		</button>
+		<mat-menu #menu="matMenu">
+			<button mat-menu-item routerLink="about-us">
+				About Us
+			</button>
+			<button mat-menu-item routerLink="contact-us">
+				Contact Us
+			</button>
+			<button mat-menu-item routerLink="donate">
+				Donate
+			</button>
+			<button mat-menu-item routerLink="login">
+				Login/Register
+			</button>
+		</mat-menu>
+	</div>
 </header>
