@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ValidationMessages, UsernameValidator } from '../validations/form-validations.ts/validations';
+import { UsernameValidator } from '../validations/form-validations/username.validation';
+import { ValidationMessages } from '../validations/validation.messages';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -17,7 +18,7 @@ export class RegisterComponent implements OnInit {
   errorMessages = ValidationMessages.validationErrorMessages;
   passwordTooltip = 'Password must have minimum 8 characters length & contains Capital Letter, Small Letter, Number and Special Character [!@#$%&*]';
 
-  constructor(private formBuilder: FormBuilder) { 
+  constructor(private formBuilder: FormBuilder) {
     this.initializeForms();
   }
 
@@ -41,15 +42,15 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  generateOtp(){
+  generateOtp() {
     this.newUser = false;
   }
 
-  resendOtp(){
+  resendOtp() {
 
   }
 
-  register(formValue){
+  register(formValue) {
 
   }
 }

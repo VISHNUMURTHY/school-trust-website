@@ -19,6 +19,16 @@
     justify-content: space-between;
 }
 
+.form-text-area {
+    width: 100%;
+    height: auto;
+    padding-top: 8px;
+}
+
+mat-form-field {
+    width: 20em;
+}
+
 button.mat-button:not(:disabled) {
     background-color: darkblue;
     color: white;
