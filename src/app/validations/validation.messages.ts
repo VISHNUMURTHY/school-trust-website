@@ -22,12 +22,14 @@ export class ValidationMessages {
             { type: 'required', message: 'Full name is required' },
             { type: 'pattern', message: "Name shouldn't have special characters" }
         ],
+        'email': [{ type: 'required', message: 'Email is required' },
+        { type: 'email', message: 'Email is Invalid' }],
         'phone': [
             { type: 'required', message: 'Phone is required' },
             { type: 'validCountryPhone', message: 'Incorrect phone for selected country ' },
             { type: 'pattern', message: 'Phone must have number digits' }
         ],
         'category': [{ type: 'required', message: 'Category is required' }],
-        'details':[{ type: 'required', message: 'More details are required' }]
+        'details': [{ type: 'required', message: 'More details are required' }]
     };
 }

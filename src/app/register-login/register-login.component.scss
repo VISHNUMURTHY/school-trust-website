@@ -1,8 +1,8 @@
 .register-login-div {
     display: flex;
-    flex-direction: row;
-    width: 100%;
-    margin-top: 40px;
+    flex: 1 0 auto;
+    flex-flow: row wrap;
+    margin: 40px 40px 25px;
 }
 
 .background-cover{
@@ -12,10 +12,27 @@
 
 .register-login {
     width: auto;
-    margin-left: 6%;
+    margin-left: 50px;
     border: black solid 1px;
     padding: 20px;
     min-width: 32%;
     box-shadow: -3px 0px 5px rgba(0,0,0,0.5), 0px 1px 3px rgba(0,0,0,0.5), 0px 6px 7px rgba(0,0,0,0.75);
     border-radius: 5px;
+}
+
+@media screen and (max-width: 700px) {
+    .register-login-div{
+        margin: 18px;
+        justify-content: center;
+    }
+
+    .background-cover{
+        width: 100%;
+        margin-bottom: 12px;
+        background-image: url('../../assets/img/school.jpg');
+    }
+
+    .register-login{
+        margin: 0;
+    }
 }
