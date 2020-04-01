@@ -1,6 +1,6 @@
 .donation-main {
     margin: 40px 40px 20px 40px;
-    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    box-shadow: 3px 4px 5px 1px rgba(0, 0, 0, 0.5), 2px 4px 5px 6px rgba(0, 0, 0, 0.24), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
     display: block;
     position: relative;
     border-radius: 4px;
@@ -16,9 +16,60 @@
 }
 
 .donation-content {
-    padding: 16px;
+    padding: 24px;
     background-color: white;
     border-radius: 0 0 4px 4px;
+}
+
+.mandatory-feild {
+    color: red;
+}
+
+.form-padding {
+    padding-top: 16px;
+}
+
+.personal-data-form {
+    display: flex;
+    flex-flow: column;
+}
+
+.name-content {
+    display: flex;
+    flex-flow: row wrap;
+
+    mat-form-field:nth-child(1) {
+        max-width: 8em;
+        padding-right: 20px;
+    }
+
+    mat-form-field:nth-child(2) {
+        flex-grow: 1;
+    }
+}
+
+.details-content {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    & mat-form-field {
+        width: 20em;
+    }
+}
+
+.pand-card{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    & mat-form-field {
+        width: 20em;
+    }
+}
+
+.option-display {
+    display: none;
 }
 
 .mat-expansion-panel:not([class*=mat-elevation-z]) {
@@ -59,6 +110,7 @@ mat-panel-description {
 
 .action-row {
     padding: 10px;
+    align-items: center;
 }
 
 @media screen and (max-width: 700px) {
@@ -66,7 +118,15 @@ mat-panel-description {
         margin: 16px;
     }
 
+    .donation-content {
+        padding: 16px;
+    }
+
     mat-panel-description {
         display: none;
+    }
+
+    .name-content mat-form-field:nth-child(1) {
+        flex-grow: 0.5;
     }
 }
