@@ -3,7 +3,7 @@
     <div class="donation-content">
         <mat-hint align="start"><span class="mandatory-feild">*</span> Marked fileds are mandatory</mat-hint>
         <form [formGroup]="donorForm" class="form-padding" (ngSubmit)="donate(donorForm.value)">
-            <mat-accordion class="example-headers-align">
+            <mat-accordion class="accordion-class">
                 <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
                     <mat-expansion-panel-header class="panel-header">
                         <mat-panel-title>
@@ -110,16 +110,34 @@
                                 Residence Address
                             </legend>
                             <form formGroupName="residenceAddressForm">
-                                <mat-form-field class="form-text-area">
-                                    <mat-label>Address</mat-label>
-                                    <textarea matInput rows="3" formControlName="addressDetails"
-                                        placeholder="Enter Address here... Special characters allowed only (#/,-)" required></textarea>
-                                    <mat-error *ngFor="let validation of errorMessages.addressDetails">
-                                        <mat-error
-                                            *ngIf="donorForm.get('addressDataForm').get('residenceAddressForm').get('addressDetails').hasError(validation.type) && (donorForm.get('addressDataForm').get('residenceAddressForm').get('addressDetails').dirty || donorForm.get('addressDataForm').get('residenceAddressForm').get('addressDetails').touched)">
-                                            {{validation.message}}</mat-error>
-                                    </mat-error>
-                                </mat-form-field>
+                                <div>
+                                    <mat-form-field>
+                                        <mat-label>Address (Area & Street)</mat-label>
+                                        <textarea matInput rows="3" formControlName="addressDetails"
+                                            placeholder="Address... Special characters allowed (#/,-)"
+                                            required></textarea>
+                                        <mat-error *ngFor="let validation of errorMessages.addressDetails">
+                                            <mat-error
+                                                *ngIf="donorForm.get('addressDataForm').get('residenceAddressForm').get('addressDetails').hasError(validation.type) && (donorForm.get('addressDataForm').get('residenceAddressForm').get('addressDetails').dirty || donorForm.get('addressDataForm').get('residenceAddressForm').get('addressDetails').touched)">
+                                                {{validation.message}}</mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div>
+                                    <mat-form-field>
+                                        <input matInput type="text" formControlName="locality" placeholder="Locality"
+                                            required>
+                                        <mat-error *ngFor="let validation of errorMessages.locality">
+                                            <mat-error
+                                                *ngIf="donorForm.get('addressDataForm').get('residenceAddressForm').get('locality').hasError(validation.type) && (donorForm.get('addressDataForm').get('residenceAddressForm').get('locality').dirty || donorForm.get('addressDataForm').get('residenceAddressForm').get('locality').touched)">
+                                                {{validation.message}}</mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <input matInput type="text" formControlName="landMark" placeholder="Land Mark">
+                                    </mat-form-field>
+                                </div>
+
                             </form>
                         </fieldset>
                         <!-- <div class="name-content">

@@ -30,10 +30,10 @@
                     </mat-form-field>
 
                     <mat-form-field>
-                        <input matInput type="tel" formControlName="phone" placeholder="Mobile No." required>
-                        <mat-error *ngFor="let validation of errorMessages.phone">
+                        <input matInput type="tel" formControlName="mobile" placeholder="Mobile No." required>
+                        <mat-error *ngFor="let validation of errorMessages.mobile">
                             <mat-error
-                                *ngIf="queryForm.get('phone').hasError(validation.type) && (queryForm.get('phone').dirty || queryForm.get('phone').touched)">
+                                *ngIf="queryForm.get('mobile').hasError(validation.type) && (queryForm.get('mobile').dirty || queryForm.get('mobile').touched)">
                                 {{validation.message}}</mat-error>
                         </mat-error>
                     </mat-form-field>
@@ -99,10 +99,10 @@
                     </mat-form-field>
 
                     <mat-form-field>
-                        <input matInput type="tel" formControlName="phone" placeholder="Mobile No." required>
-                        <mat-error *ngFor="let validation of errorMessages.phone">
+                        <input matInput type="tel" formControlName="mobile" placeholder="Mobile No." required>
+                        <mat-error *ngFor="let validation of errorMessages.mobile">
                             <mat-error
-                                *ngIf="feedbackForm.get('phone').hasError(validation.type) && (feedbackForm.get('phone').dirty || feedbackForm.get('phone').touched)">
+                                *ngIf="feedbackForm.get('mobile').hasError(validation.type) && (feedbackForm.get('mobile').dirty || feedbackForm.get('mobile').touched)">
                                 {{validation.message}}</mat-error>
                         </mat-error>
                     </mat-form-field>
@@ -137,7 +137,7 @@
         </div>
         <div class="contact-details-content">
             <div class="contact-details-content-data">
-                <p>Connect over phone : 1234567890</p>
+                <p>Connect over mobile : 1234567890</p>
                 <p>Connect over mail : abcdd@gmail.com</p>
             </div>
         </div>

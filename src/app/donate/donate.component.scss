@@ -75,12 +75,7 @@
 fieldset {
     border-color: blue;
     border-radius: 4px;
-}
-
-.form-text-area {
-    flex-grow: 1;
-    height: auto;
-    //padding-top: 8px;
+    min-width: 0;
 }
 
 .mat-expansion-panel:not([class*=mat-elevation-z]) {
