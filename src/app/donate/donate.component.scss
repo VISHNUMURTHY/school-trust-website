@@ -29,7 +29,7 @@
     padding-top: 16px;
 }
 
-.personal-data-form {
+.data-form {
     display: flex;
     flex-flow: column;
 }
@@ -58,7 +58,7 @@
     }
 }
 
-.pand-card{
+.pand-card {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -70,6 +70,17 @@
 
 .option-display {
     display: none;
+}
+
+fieldset {
+    border-color: blue;
+    border-radius: 4px;
+}
+
+.form-text-area {
+    flex-grow: 1;
+    height: auto;
+    //padding-top: 8px;
 }
 
 .mat-expansion-panel:not([class*=mat-elevation-z]) {

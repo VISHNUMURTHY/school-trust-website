@@ -32,10 +32,18 @@ export class ValidationMessages {
         'category': [{ type: 'required', message: 'Category is required' }],
         'details': [{ type: 'required', message: 'More details are required' }],
         'salutation': [{ type: 'required', message: 'Salutation is required' }],
-        'mobile': [{ type: 'required', message: 'Mobile No. is required' },
-        { type: 'pattern', message: 'Mobile No. should contain numbers' }],
+        'mobile': [
+            { type: 'required', message: 'Mobile No. is required' },
+            { type: 'pattern', message: 'Mobile No. should contain numbers' }
+        ],
         'gender': [{ type: 'required', message: 'Gender is required' }],
-        'pancard': [{ type: 'required', message: 'Pan No. is required' },
-        { type: 'pattern', message: 'Pan No. has invalid format' }]
+        'pancard': [
+            { type: 'required', message: 'Pan No. is required' },
+            { type: 'pattern', message: 'Pan No. has invalid format' }
+
+        ],
+        'addressDetails': [
+            { type: 'required', message: 'Address is required' },
+            { type: 'pattern', message: 'Address has invalid characters' }]
     };
 }
