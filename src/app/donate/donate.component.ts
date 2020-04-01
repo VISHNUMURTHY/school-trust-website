@@ -10,7 +10,7 @@ import { GENDER_TYPES, SALUTATION_TYPES } from '../constants/app.constants';
 })
 export class DonateComponent implements OnInit {
 
-  step = 0;
+  step = 1;
   checked = new FormControl(true);
   disableAddressPanel = true;
   disablePaymentPanel = true;
@@ -71,12 +71,15 @@ export class DonateComponent implements OnInit {
       ])],
       nation: ['', Validators.compose([
         Validators.required, Validators.pattern('^([A-Za-z]+\\s)*[A-Za-z]+$')
+      ])],
+      pincode:['', Validators.compose([
+        Validators.required, Validators.pattern('^[0-9]+$')
       ])]
     });
 
     let addressData = this.fb.group({
-      residenceAddress: address,
-      officeAddress: address
+      residenceAddressForm: address,
+      permanentAddressForm: address
     });
 
     let paymentData = this.fb.group({

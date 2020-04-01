@@ -27,7 +27,7 @@
     }
 
     .background-cover{
-        width: 100%;
+        flex-grow: 1;
         margin-bottom: 12px;
         background-image: url('../../assets/img/school.jpg');
     }

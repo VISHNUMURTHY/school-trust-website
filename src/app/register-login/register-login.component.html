@@ -4,11 +4,8 @@
 
         ವಿಷ್ಣು
     </div>
-    <div *ngIf="path === '/login'" class="register-login">
-        <app-login></app-login>
-    </div>
-
-    <div *ngIf="path === '/register'" class="register-login">
-        <app-register></app-register>
+    <div class="register-login">
+        <app-login *ngIf="path === '/login'"></app-login>
+        <app-register *ngIf="path === '/register'"></app-register>
     </div>
 </div>
