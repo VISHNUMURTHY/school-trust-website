@@ -10,3 +10,89 @@
         <input matInput type="tel" formControlName="phone" required>
     </mat-form-field>
 </div>
+
+<html>
+
+<body>
+    <div class="div-border">
+        <h3>Reservation Request</h3>
+        <form id="Submit Request" action="/next.html">
+            <fieldset>
+                <legend>General Information</legend>
+                <label for="arrivalDate">Arrival date:</label>
+                <input type="text" id="arrivalDate" name="arrivalDate"><br><br>
+                <label for="nights">Nights:</label>
+                <input type="text" id="nights" name="nights"><br><br>
+                <label for="adults">Adults:</label>
+                <input type="number" id="adults" name="adults" min="1"><br><br>
+                <label for="children">Children:</label>
+                <input type="number" id="children" name="children" min="0"><br><br>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Preferences</legend>
+                <div class="radio-inputs">
+                    <label>Room type: </label>
+                    <input type="radio" id="standard" name="roomtype" value="standard">
+                    <label for="standard">Standard</label><br><br>
+                    <input type="radio" id="business" name="roomtype" value="business">
+                    <label for="business">Business</label><br><br>
+                    <input type="radio" id="suite" name="roomtype" value="suite">
+                    <label for="suite">Suite</label>
+                </div>
+                <div class="radio-inputs">
+                    <label>Bed type: </label>
+                    <input type="radio" id="king" name="bedtype" value="king">
+                    <label for="king">King</label><br><br>
+                    <input type="radio" id="doubledouble" name="bedtype" value="doubledouble">
+                    <label for="doubledouble">Double Double</label>
+                </div>
+                <input type="checkbox" id="smoking" name="smoking" value="smoking">
+                <label for="smoking"> Smoking</label>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Contact Information</legend>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name"><br><br>
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email"><br><br>
+                <label for="phone">Adults:</label>
+                <input type="text" id="phone" name="phone"><br><br>
+            </fieldset>
+            <br>
+            <input type="submit" value="Submit Request">
+        </form>
+    </div>
+    <style>
+        .div-border {
+            border: 2px solid blue;
+            padding: 20px;
+        }
+
+        legend {
+            color: blue;
+        }
+
+        .radio-inputs {
+            display: flex;
+            flex-flow: row wrap;
+        }
+    </style>
+
+    <script>
+        var emailPattern;
+        document.addEventListener('DOMContentLoaded', (event) => {
+            emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'; //add your email pattern here
+            document.getElementById('arrivalDate').focus(); //get id of arrivaldate input and set focus
+        });
+
+        document.getElementById("myForm").addEventListener("submit", formSubmission);
+
+        function formSubmission() {
+            alert("The form was submitted");
+        }
+    </script>
+</body>
+
+</html>

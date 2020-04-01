@@ -30,7 +30,7 @@ export class ContactUsComponent implements OnInit {
       ])],
       phone: ['', Validators.compose([
         Validators.required,
-        Validators.pattern('^[0-9]{6,}$')
+        Validators.pattern('^[0-9]$')
       ])],
       category: ['', Validators.required],
       details: ['', Validators.compose([

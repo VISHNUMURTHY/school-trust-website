@@ -21,7 +21,7 @@
                     </mat-form-field>
 
                     <mat-form-field>
-                        <input matInput type="text" formControlName="email" placeholder="Email ID" required>
+                        <input matInput type="email" formControlName="email" placeholder="Email ID" required>
                         <mat-error *ngFor="let validation of errorMessages.email">
                             <mat-error
                                 *ngIf="queryForm.get('email').hasError(validation.type) && (queryForm.get('email').dirty || queryForm.get('email').touched)">
@@ -30,7 +30,7 @@
                     </mat-form-field>
 
                     <mat-form-field>
-                        <input matInput type="tel" formControlName="phone" placeholder="Contact Number" required>
+                        <input matInput type="tel" formControlName="phone" placeholder="Mobile No." required>
                         <mat-error *ngFor="let validation of errorMessages.phone">
                             <mat-error
                                 *ngIf="queryForm.get('phone').hasError(validation.type) && (queryForm.get('phone').dirty || queryForm.get('phone').touched)">
@@ -90,7 +90,7 @@
                     </mat-form-field>
 
                     <mat-form-field>
-                        <input matInput type="text" formControlName="email" placeholder="Email ID" required>
+                        <input matInput type="email" formControlName="email" placeholder="Email ID" required>
                         <mat-error *ngFor="let validation of errorMessages.email">
                             <mat-error
                                 *ngIf="feedbackForm.get('email').hasError(validation.type) && (feedbackForm.get('email').dirty || feedbackForm.get('email').touched)">
@@ -99,7 +99,7 @@
                     </mat-form-field>
 
                     <mat-form-field>
-                        <input matInput type="tel" formControlName="phone" placeholder="Contact Number" required>
+                        <input matInput type="tel" formControlName="phone" placeholder="Mobile No." required>
                         <mat-error *ngFor="let validation of errorMessages.phone">
                             <mat-error
                                 *ngIf="feedbackForm.get('phone').hasError(validation.type) && (feedbackForm.get('phone').dirty || feedbackForm.get('phone').touched)">
