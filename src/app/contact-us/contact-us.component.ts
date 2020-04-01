@@ -28,9 +28,9 @@ export class ContactUsComponent implements OnInit {
       email: ['', Validators.compose([
         Validators.required, Validators.email
       ])],
-      phone: ['', Validators.compose([
+      mobile: ['', Validators.compose([
         Validators.required,
-        Validators.pattern('^[0-9]$')
+        Validators.pattern('^[0-9]{10}$')
       ])],
       category: ['', Validators.required],
       details: ['', Validators.compose([
@@ -45,9 +45,9 @@ export class ContactUsComponent implements OnInit {
       email: ['', Validators.compose([
         Validators.required, Validators.email
       ])],
-      phone: ['', Validators.compose([
+      mobile: ['', Validators.compose([
         Validators.required,
-        Validators.pattern('^[0-9]{6,}$')
+        Validators.pattern('^[0-9]{10}$')
       ])],
       details: ['', Validators.compose([
         Validators.required

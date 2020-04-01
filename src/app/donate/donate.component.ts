@@ -27,7 +27,7 @@ export class DonateComponent implements OnInit {
     this.checked.valueChanges.subscribe((value: boolean) => {
       if (value === true) {
         this.donorForm.get('personalDataForm').get('pancard').setValidators([Validators.required, Validators.pattern('^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$')]);
-      }else{
+      } else {
         this.donorForm.get('personalDataForm').get('pancard').clearValidators();
       }
       this.donorForm.get('personalDataForm').get('pancard').updateValueAndValidity();
@@ -45,7 +45,7 @@ export class DonateComponent implements OnInit {
       ])],
       mobile: ['', Validators.compose([
         Validators.required,
-        Validators.pattern('^[0-9]+$')
+        Validators.pattern('^[0-9]{10}$')
       ])],
       gender: ['', Validators.compose([
         Validators.required
@@ -57,8 +57,9 @@ export class DonateComponent implements OnInit {
       addressDetails: ['', Validators.compose([
         Validators.required, Validators.pattern('^([A-Za-z0-9#/,-]+\\s)*[A-Za-z0-9#/,-]+$')
       ])],
-      landMark: ['', Validators.compose([
-        Validators.required, Validators.pattern('^([A-Za-z0-9,]+\\s)*[A-Za-z0-9,]+$')
+      landMark: [''],
+      locality: ['', Validators.compose([
+        Validators.required
       ])],
       city: ['', Validators.compose([
         Validators.required, Validators.pattern('^([A-Za-z]+\\s)*[A-Za-z]+$')
@@ -69,11 +70,8 @@ export class DonateComponent implements OnInit {
       state: ['', Validators.compose([
         Validators.required, Validators.pattern('^([A-Za-z]+\\s)*[A-Za-z]+$')
       ])],
-      nation: ['', Validators.compose([
-        Validators.required, Validators.pattern('^([A-Za-z]+\\s)*[A-Za-z]+$')
-      ])],
-      pincode:['', Validators.compose([
-        Validators.required, Validators.pattern('^[0-9]+$')
+      pincode: ['', Validators.compose([
+        Validators.required, Validators.pattern('^[0-9]{6}$')
       ])]
     });
 

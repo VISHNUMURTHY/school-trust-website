@@ -34,7 +34,7 @@ export class ValidationMessages {
         'salutation': [{ type: 'required', message: 'Salutation is required' }],
         'mobile': [
             { type: 'required', message: 'Mobile No. is required' },
-            { type: 'pattern', message: 'Mobile No. should contain numbers' }
+            { type: 'pattern', message: 'Mobile No. must be 10 digits' }
         ],
         'gender': [{ type: 'required', message: 'Gender is required' }],
         'pancard': [
@@ -44,6 +44,10 @@ export class ValidationMessages {
         ],
         'addressDetails': [
             { type: 'required', message: 'Address is required' },
-            { type: 'pattern', message: 'Address has invalid characters' }]
+            { type: 'pattern', message: 'Address has invalid characters' }
+        ],
+        'locality': [
+            { type: 'required', message: 'Locality is required' }
+        ]
     };
 }
