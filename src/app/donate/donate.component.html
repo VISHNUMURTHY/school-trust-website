@@ -83,6 +83,16 @@
                                         {{validation.message}}</mat-error>
                                 </mat-error>
                             </mat-form-field>
+                            <div>
+                                <mat-checkbox color="primary" [formControl]="docCopy" labelPosition="after">
+                                    Hard Copy Required
+                                </mat-checkbox>
+                                <button mat-icon-button (click)="tooltip.toggle()" #tooltip="matTooltip"
+                                    matTooltip="{{hardCopyInfo}}" matTooltipClass="tooltipInfo">
+                                    <mat-icon class="icons" color="primary">help
+                                    </mat-icon>
+                                </button>
+                            </div>
                         </div>
                     </form>
                     <mat-action-row class="action-row">

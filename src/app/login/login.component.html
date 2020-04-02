@@ -16,7 +16,7 @@
         <input matInput [type]="hide ? 'text' : 'password'" placeholder="Password" formControlName="password" required>
         <div class="icons-div" matSuffix>
             <mat-icon class="icons" (click)="hide = !hide">{{hide? 'visibility':'visibility_off'}}</mat-icon>
-            <mat-icon class="icons" matTooltip="{{passwordTooltip}}" matTooltipClass="passwordInfo">info</mat-icon>
+            <mat-icon class="icons" (click)="tooltip.toggle()" #tooltip="matTooltip" matTooltip="{{passwordTooltip}}" matTooltipClass="tooltipInfo">info</mat-icon>
         </div>
         <mat-error *ngFor="let validation of errorMessages.password">
             <mat-error class="error-message"
@@ -61,7 +61,7 @@
                 required>
             <div class="icons-div" matSuffix>
                 <mat-icon class="icons" (click)="hide = !hide">{{hide? 'visibility':'visibility_off'}}</mat-icon>
-                <mat-icon class="icons" matTooltip="{{passwordTooltip}}" matTooltipClass="passwordInfo">info</mat-icon>
+                <mat-icon class="icons" (click)="tooltip.toggle()" #tooltip="matTooltip"  matTooltip="{{passwordTooltip}}" matTooltipClass="tooltipInfo">info</mat-icon>
             </div>
             <mat-error *ngFor="let validation of errorMessages.password">
                 <mat-error class="error-message"

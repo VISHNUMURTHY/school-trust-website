@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ValidationMessages } from '../validations/validation.messages';
 import { GENDER_TYPES, SALUTATION_TYPES } from '../constants/app.constants';
+import { STATES } from '../constants/states.constants';
 
 @Component({
   selector: 'app-donate',
@@ -12,12 +13,15 @@ export class DonateComponent implements OnInit {
 
   step = 1;
   checked = new FormControl(true);
+  docCopy = new FormControl(false);
   disableAddressPanel = true;
   disablePaymentPanel = true;
   donorForm: FormGroup;
   errorMessages = ValidationMessages.validationErrorMessages;
   genderTypes = GENDER_TYPES;
   salutationTypes = SALUTATION_TYPES;
+  states = STATES;
+  hardCopyInfo = 'Select this option to recieve Hard copy for donation amount.';
 
   constructor(private fb: FormBuilder) { }
 
@@ -93,9 +97,7 @@ export class DonateComponent implements OnInit {
       personalDataForm: personalData,
       addressDataForm: addressData,
       paymentDataForm: paymentData,
-      hardCopy: ['', Validators.compose([
-        Validators.required
-      ])]
+      hardCopy: [this.docCopy.value]
     });
   }
 

@@ -37,8 +37,9 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.passwordInfo {
-    margin: 3px !important;
+.tooltipInfo[class*=mat-tooltip] {
+    margin: 3px;
+    font-size: 11px;
 }
 
 .accordion-class .mat-expansion-panel-body {
