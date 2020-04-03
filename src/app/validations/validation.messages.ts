@@ -48,6 +48,22 @@ export class ValidationMessages {
         ],
         'locality': [
             { type: 'required', message: 'Locality is required' }
+        ],
+        'city': [
+            { type: 'required', message: 'City is required' },
+            { type: 'pattern', message: 'City has invalid characters' }
+        ],
+        'district': [
+            { type: 'required', message: 'District is required' },
+            { type: 'pattern', message: 'District has invalid characters' }
+        ],
+        'state': [
+            { type: 'required', message: 'State is required' },
+            { type: 'pattern', message: 'State has invalid characters' }
+        ],
+        'pincode': [
+            { type: 'required', message: 'Postal code is required' },
+            { type: 'pattern', message: 'Postal code has invalid characters' }
         ]
     };
 }

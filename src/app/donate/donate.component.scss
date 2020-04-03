@@ -72,10 +72,21 @@
     display: none;
 }
 
-fieldset {
-    border-color: blue;
-    border-radius: 4px;
-    min-width: 0;
+.route {
+    width: 40em;
+}
+
+.right-padding {
+    padding-right: 20px;
+}
+
+.address-subpart {
+    display: flex;
+    flex-flow: row wrap;
+
+    mat-form-field {
+        width: 20em;
+    }
 }
 
 .mat-expansion-panel:not([class*=mat-elevation-z]) {
@@ -134,5 +145,13 @@ mat-panel-description {
 
     .name-content mat-form-field:nth-child(1) {
         flex-grow: 0.5;
+    }
+
+    .route {
+        width: auto;
+    }
+
+    .right-padding {
+        padding-right: 0;
     }
 }

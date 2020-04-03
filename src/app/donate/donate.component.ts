@@ -11,7 +11,7 @@ import { STATES } from '../constants/states.constants';
 })
 export class DonateComponent implements OnInit {
 
-  step = 1;
+  step = 0;
   checked = new FormControl(true);
   docCopy = new FormControl(false);
   disableAddressPanel = true;
@@ -57,7 +57,7 @@ export class DonateComponent implements OnInit {
       pancard: ['']
     });
 
-    let address = this.fb.group({
+    let addressData = this.fb.group({
       addressDetails: ['', Validators.compose([
         Validators.required, Validators.pattern('^([A-Za-z0-9#/,-]+\\s)*[A-Za-z0-9#/,-]+$')
       ])],
@@ -72,16 +72,11 @@ export class DonateComponent implements OnInit {
         Validators.required, Validators.pattern('^([A-Za-z]+\\s)*[A-Za-z]+$')
       ])],
       state: ['', Validators.compose([
-        Validators.required, Validators.pattern('^([A-Za-z]+\\s)*[A-Za-z]+$')
+        Validators.required, Validators.pattern('^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$')
       ])],
       pincode: ['', Validators.compose([
         Validators.required, Validators.pattern('^[0-9]{6}$')
       ])]
-    });
-
-    let addressData = this.fb.group({
-      residenceAddressForm: address,
-      permanentAddressForm: address
     });
 
     let paymentData = this.fb.group({
