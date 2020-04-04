@@ -53,7 +53,7 @@
 
                     <mat-form-field class="form-text-area">
                         <mat-label>More details</mat-label>
-                        <textarea matInput rows="6" formControlName="details" placeholder="Provide more details here..."
+                        <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="4" cdkAutosizeMaxRows="7" formControlName="details" placeholder="Provide more details here..."
                             required></textarea>
                         <mat-error *ngFor="let validation of errorMessages.details">
                             <mat-error
@@ -109,7 +109,7 @@
 
                     <mat-form-field class="form-text-area">
                         <mat-label>Leave a comment</mat-label>
-                        <textarea matInput rows="6" formControlName="details" placeholder="Provide more details here..."
+                        <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="4" cdkAutosizeMaxRows="7" formControlName="details" placeholder="Provide more details here..."
                             required></textarea>
                         <mat-error *ngFor="let validation of errorMessages.details">
                             <mat-error

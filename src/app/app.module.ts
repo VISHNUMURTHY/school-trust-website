@@ -18,6 +18,25 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { DonateComponent } from './donate/donate.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AddressComponent } from './address/address.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCardModule } from '@angular/material/card';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { LayoutModule } from '@angular/cdk/layout';
+import { NavigateComponent } from './navigate/navigate.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { TableComponent } from './table/table.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -31,7 +50,11 @@ import { ProfileComponent } from './profile/profile.component';
     AboutUsComponent,
     ContactUsComponent,
     DonateComponent,
-    ProfileComponent
+    ProfileComponent,
+    AddressComponent,
+    DashboardComponent,
+    NavigateComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +63,22 @@ import { ProfileComponent } from './profile/profile.component';
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCardModule,
+    MatGridListModule,
+    MatMenuModule,
+    MatIconModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [APP_INTERCEPTORS],
   bootstrap: [AppComponent]

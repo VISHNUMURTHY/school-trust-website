@@ -11,7 +11,7 @@ import { STATES } from '../constants/states.constants';
 })
 export class DonateComponent implements OnInit {
 
-  step = 0;
+  step = 2;
   checked = new FormControl(true);
   docCopy = new FormControl(false);
   disableAddressPanel = true;
