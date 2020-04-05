@@ -102,7 +102,7 @@
                     </mat-action-row>
                 </mat-expansion-panel>
 
-                <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle
+                <mat-expansion-panel [expanded]="step === 1" *ngIf="docCopy.value" (opened)="setStep(1)" hideToggle
                     [disabled]="disableAddressPanel && !donorForm.get('personalDataForm').valid">
                     <mat-expansion-panel-header class="panel-header">
                         <mat-panel-title>
@@ -195,7 +195,7 @@
                 </mat-expansion-panel>
 
                 <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle
-                    [disabled]="disablePaymentPanel && (!donorForm.get('personalDataForm').valid || !donorForm.get('addressDataForm').valid)">
+                    [disabled]="disablePaymentPanel && (!donorForm.get('personalDataForm').valid || (docCopy.value ? !donorForm.get('addressDataForm').valid : 'false'))">
                     <mat-expansion-panel-header class="panel-header">
                         <mat-panel-title>
                             Payment Details

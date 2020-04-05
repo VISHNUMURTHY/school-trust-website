@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl, FormArray } from '@angular/forms';
 import { ValidationMessages } from '../validations/validation.messages';
 import { GENDER_TYPES, SALUTATION_TYPES } from '../constants/app.constants';
 import { STATES } from '../constants/states.constants';
@@ -36,6 +36,11 @@ export class DonateComponent implements OnInit {
       }
       this.donorForm.get('personalDataForm').get('pancard').updateValueAndValidity();
     });
+
+    this.docCopy.valueChanges.subscribe((value: boolean) => {
+      this.modifyAddressForm(value);
+      this.donorForm.get('hardCopy').setValue(value);
+    });
   }
 
   initializeForms() {
@@ -56,6 +61,24 @@ export class DonateComponent implements OnInit {
       ])],
       pancard: ['']
     });
+
+    let paymentData = this.fb.group({
+      paymentType: ['', Validators.compose([
+        Validators.required, Validators.pattern('^[A-Z]+$')
+      ])],
+      amount: ['', Validators.compose([
+        Validators.required, Validators.pattern('^[0-9]+$')
+      ])]
+    });
+
+    this.donorForm = this.fb.group({
+      personalDataForm: personalData,
+      paymentDataForm: paymentData,
+      hardCopy: [this.docCopy.value]
+    });
+  }
+
+  modifyAddressForm(val: boolean) {
 
     let addressData = this.fb.group({
       addressDetails: ['', Validators.compose([
@@ -79,21 +102,7 @@ export class DonateComponent implements OnInit {
       ])]
     });
 
-    let paymentData = this.fb.group({
-      paymentType: ['', Validators.compose([
-        Validators.required, Validators.pattern('^[A-Z]+$')
-      ])],
-      amount: ['', Validators.compose([
-        Validators.required, Validators.pattern('^[0-9]+$')
-      ])]
-    });
-
-    this.donorForm = this.fb.group({
-      personalDataForm: personalData,
-      addressDataForm: addressData,
-      paymentDataForm: paymentData,
-      hardCopy: [this.docCopy.value]
-    });
+    val ? this.donorForm.addControl('addressDataForm', addressData) : this.donorForm.removeControl('addressDataForm');
   }
 
   setStep(index: number) {
@@ -102,10 +111,16 @@ export class DonateComponent implements OnInit {
 
   nextStep() {
     this.step++;
+    if (!this.docCopy.value) {
+      this.step++;
+    }
   }
 
   prevStep() {
     this.step--;
+    if (!this.docCopy.value) {
+      this.step--;
+    }
   }
 
   donate(value) {
