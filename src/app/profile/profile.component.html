@@ -1,7 +1,21 @@
 <div class="profile-viewer">
     <div class="profile-header">Profile Details</div>
-    <form>
-hello
+    <form [formGroup]="profileForm" class="form-padding data-form">
+        <div class="profile-image-upload">
+            <img src="../../assets/img/test.png" class="profile-image">
+            <button mat-icon-button (click)="fileInput.click()">
+                <mat-icon>photo_camera</mat-icon>
+                <input #fileInput type="file" (change)="onFileChange($event)" style="display:none;" />
+            </button>
+        </div>
+        <!-- <mat-form-field>
+        <input matInput type="text" formControlName="fullname" placeholder="Full Name" required>
+        <mat-error *ngFor="let validation of errorMessages.fullname">
+            <mat-error
+                *ngIf="donorForm.get('personalDataForm').get('fullname').hasError(validation.type) && (donorForm.get('personalDataForm').get('fullname').dirty || donorForm.get('personalDataForm').get('fullname').touched)">
+                {{validation.message}}</mat-error>
+        </mat-error>
+        </mat-form-field> -->
     </form>
-    
+
 </div>

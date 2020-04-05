@@ -8,15 +8,55 @@
     box-shadow: 3px 4px 5px 1px rgba(0, 0, 0, 0.5), 2px 4px 5px 6px rgba(0, 0, 0, 0.24), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 }
 
-.profile-header{
+.profile-header {
     background: darkblue;
     padding: 16px;
     border-radius: 4px 4px 0 0;
     color: white;
 }
 
-@media screen and (max-width:700px){
-    .profile-viewer{
+.form-padding {
+    padding: 24px;
+}
+
+.data-form {
+    display: flex;
+    flex-flow: column;
+}
+
+.profile-image-upload {
+    display: flex;
+    align-items: flex-end;
+
+    & button {
+        margin-left: -35px;
+        top: -12px;
+
+        & mat-icon {
+            height: 40px;
+            width: 40px;
+            font-size: 40px;
+        }
+    }
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    clip-path: circle(50% at 50% 50%);
+}
+
+@media screen and (max-width:700px) {
+    .profile-viewer {
         margin: 16px;
+    }
+
+    .form-padding {
+        padding: 16px;
+    }
+
+    .profile-image-upload {
+        flex-grow: 1;
+        justify-content: center;
     }
 }

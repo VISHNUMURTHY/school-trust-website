@@ -19,24 +19,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { DonateComponent } from './donate/donate.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AddressComponent } from './address/address.component';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSelectModule } from '@angular/material/select';
-import { MatRadioModule } from '@angular/material/radio';
-import { MatCardModule } from '@angular/material/card';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatIconModule } from '@angular/material/icon';
-import { LayoutModule } from '@angular/cdk/layout';
-import { NavigateComponent } from './navigate/navigate.component';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
-import { TableComponent } from './table/table.component';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
+import { FileEventsDirective } from './directives/file-events.directive';
 
 @NgModule({
   declarations: [
@@ -52,9 +35,7 @@ import { MatSortModule } from '@angular/material/sort';
     DonateComponent,
     ProfileComponent,
     AddressComponent,
-    DashboardComponent,
-    NavigateComponent,
-    TableComponent
+    FileEventsDirective
   ],
   imports: [
     BrowserModule,
@@ -63,22 +44,7 @@ import { MatSortModule } from '@angular/material/sort';
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule,
-    MatInputModule,
-    MatButtonModule,
-    MatSelectModule,
-    MatRadioModule,
-    MatCardModule,
-    MatGridListModule,
-    MatMenuModule,
-    MatIconModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatListModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule
+    HttpClientModule
   ],
   providers: [APP_INTERCEPTORS],
   bootstrap: [AppComponent]
