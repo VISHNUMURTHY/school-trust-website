@@ -17,8 +17,8 @@ export class ProfileComponent implements OnInit {
   salutationTypes = SALUTATION_TYPES;
   states = STATES;
   addAddress = new FormControl(false);
-  image = new FormControl("");
-  
+  image = "../../assets/img/profile.svg";
+
 
   constructor(private fb: FormBuilder) { }
 
@@ -82,7 +82,14 @@ export class ProfileComponent implements OnInit {
     val ? this.profileForm.addControl('addressDataForm', addressData) : this.profileForm.removeControl('addressDataForm');
   }
 
-  onFileChange($event){
-    console.log("File upload");
+  onFileChange($event) {
+    if ($event.target.files[0] && $event.target.files && $event.target.files[0].tyle !==null) {
+      let file = $event.target.files[0];
+      let reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = (event) => {
+        this.image = event.target.result as string;
+      }
+    }
   }
 }

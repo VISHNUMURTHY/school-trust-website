@@ -2,10 +2,13 @@
     <div class="profile-header">Profile Details</div>
     <form [formGroup]="profileForm" class="form-padding data-form">
         <div class="profile-image-upload">
-            <img src="../../assets/img/test.png" class="profile-image">
-            <button mat-icon-button (click)="fileInput.click()">
-                <mat-icon>photo_camera</mat-icon>
-                <input #fileInput type="file" (change)="onFileChange($event)" style="display:none;" />
+            <img [src]="image" class="profile-image">
+            <button mat-icon-button (click)="fileInput.click()" disableRipple="true">
+                <!-- <mat-icon (click)="tooltip.toggle()" #tooltip="matTooltip" matTooltip="Upload your Recent Photo"
+                    matTooltipClass="tooltipInfo">photo_camera</mat-icon> -->
+                <img class="camera" src="../../assets/img/camera.svg" matTooltip="Upload your Recent Photo"
+                    matTooltipClass="tooltipInfo">
+                <input #fileInput type="file" accept="image/*" (change)="onFileChange($event)" class="input-image">
             </button>
         </div>
         <!-- <mat-form-field>

@@ -16,7 +16,7 @@
 }
 
 .form-padding {
-    padding: 24px;
+    padding: 24px 48px;
 }
 
 .data-form {
@@ -30,20 +30,28 @@
 
     & button {
         margin-left: -35px;
-        top: -12px;
+        top: -18px;
 
-        & mat-icon {
+        & img {
             height: 40px;
             width: 40px;
-            font-size: 40px;
         }
     }
 }
 
 .profile-image {
-    width: 150px;
-    height: 150px;
+    width: 145px;
+    height: 145px;
     clip-path: circle(50% at 50% 50%);
+}
+
+.input-image {
+    display: none;
+}
+
+.camera{
+    height: 40px;
+    width: 40px;
 }
 
 @media screen and (max-width:700px) {
