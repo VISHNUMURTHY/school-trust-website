@@ -1,5 +1,5 @@
 export const EMAIL_PATTERN = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';
-export const MOBILE_PATTERN = '^[0-9]+$';
+export const MOBILE_PATTERN = '^[0-9]{10}+$';
 
 export class ValidationMessages {
     public static validationErrorMessages = {
@@ -64,6 +64,10 @@ export class ValidationMessages {
         'pincode': [
             { type: 'required', message: 'Postal code is required' },
             { type: 'pattern', message: 'Postal code has invalid characters' }
+        ],
+        'dob': [
+            { type: 'required', message: 'Date of Birth is required' },
+            { type: 'pattern', message: 'Date of Birth has invalid pattern' }
         ]
     };
 }

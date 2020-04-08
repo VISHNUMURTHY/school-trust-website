@@ -19,16 +19,41 @@
     padding: 24px 48px;
 }
 
+.form-sub-padding {
+    padding: 16px 0 0;
+}
+
 .data-form {
     display: flex;
     flex-flow: column;
+}
+
+.profile-details-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profile-details-subheader {
+    display: flex;
+    align-items: center;
+}
+
+.profile-short-details {
+    display: inherit;
+    flex-direction: column;
+    margin-left: 30px;
+}
+
+.profile-short-details-mobile {
+    display: none;
 }
 
 .profile-image-upload {
     display: flex;
     align-items: flex-end;
 
-    & button {
+    & .file-button {
         margin-left: -35px;
         top: -18px;
 
@@ -49,9 +74,75 @@
     display: none;
 }
 
-.camera{
-    height: 40px;
-    width: 40px;
+.personal-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.name-content {
+    display: flex;
+    flex-flow: row wrap;
+
+    & mat-form-field {
+        flex-grow: 0.5;
+    }
+}
+
+.details-content {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    & mat-form-field {
+        width: 20em;
+    }
+}
+
+.details-content div {
+    width: 20em;
+}
+
+.option-display {
+    display: none;
+}
+
+.salutation {
+    max-width: 8em;
+    padding-right: 20px;
+}
+
+mat-checkbox {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.route {
+    width: 40em;
+}
+
+.address-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.address-subpart {
+    display: flex;
+    flex-flow: row wrap;
+
+    mat-form-field {
+        width: 20em;
+    }
+}
+
+.right-padding {
+    padding-right: 20px;
+}
+
+.buttons-group{
+    display: flex;
+    justify-content: space-evenly;
+    
 }
 
 @media screen and (max-width:700px) {
@@ -63,8 +154,24 @@
         padding: 16px;
     }
 
-    .profile-image-upload {
+    .profile-short-details {
+        display: none;
+    }
+
+    .profile-short-details-mobile {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .name-content mat-form-field:nth-child(2) {
         flex-grow: 1;
-        justify-content: center;
+    }
+
+    .route {
+        width: auto;
+    }
+
+    .right-padding {
+        padding-right: 0;
     }
 }

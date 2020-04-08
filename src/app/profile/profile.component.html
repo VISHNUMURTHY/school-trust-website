@@ -1,24 +1,204 @@
 <div class="profile-viewer">
     <div class="profile-header">Profile Details</div>
-    <form [formGroup]="profileForm" class="form-padding data-form">
-        <div class="profile-image-upload">
-            <img [src]="image" class="profile-image">
-            <button mat-icon-button (click)="fileInput.click()" disableRipple="true">
-                <!-- <mat-icon (click)="tooltip.toggle()" #tooltip="matTooltip" matTooltip="Upload your Recent Photo"
-                    matTooltipClass="tooltipInfo">photo_camera</mat-icon> -->
-                <img class="camera" src="../../assets/img/camera.svg" matTooltip="Upload your Recent Photo"
-                    matTooltipClass="tooltipInfo">
-                <input #fileInput type="file" accept="image/*" (change)="onFileChange($event)" class="input-image">
-            </button>
-        </div>
-        <!-- <mat-form-field>
-        <input matInput type="text" formControlName="fullname" placeholder="Full Name" required>
-        <mat-error *ngFor="let validation of errorMessages.fullname">
-            <mat-error
-                *ngIf="donorForm.get('personalDataForm').get('fullname').hasError(validation.type) && (donorForm.get('personalDataForm').get('fullname').dirty || donorForm.get('personalDataForm').get('fullname').touched)">
-                {{validation.message}}</mat-error>
-        </mat-error>
-        </mat-form-field> -->
-    </form>
+    <div class="form-padding data-form">
+        <div class="profile-details-header">
+            <div class="profile-details-subheader">
+                <div class="profile-image-upload">
+                    <img [src]="image" class="profile-image">
+                    <button type="button" class="file-button" mat-icon-button (click)="fileInput.click()"
+                        disableRipple="true">
+                        <img class="camera" src="../../assets/img/camera.svg" matTooltip="Upload your Recent Photo"
+                            matTooltipClass="tooltipInfo">
+                        <input #fileInput type="file" accept="image/*" (change)="onFileChange($event)"
+                            class="input-image">
+                    </button>
+                </div>
 
+                <div class="profile-short-details">
+                    <div>Name</div>
+                    <div>email</div>
+                    <div> mobile</div>
+                    <div>Pan</div>
+                </div>
+            </div>
+            <div>
+                <button mat-icon-button type="button">
+                    <mat-icon (click)="editTooltip.toggle()" #editTooltip="matTooltip"
+                        matTooltip="Edit your Profile Details" matTooltipClass="tooltipInfo">edit</mat-icon>
+                </button>
+            </div>
+        </div>
+        <div class="profile-short-details-mobile">
+            <div>Name</div>
+            <div>email</div>
+            <div> mobile</div>
+            <div>Pan</div>
+        </div>
+        <form [formGroup]="profileForm" class="form-sub-padding data-form" (ngSubmit)="updateProfile(profileForm.value)">
+            <div formGroupName="personalDataForm" class="personal-details">
+                <div class="name-content">
+                    <mat-form-field class="salutation">
+                        <mat-label>Salutation</mat-label>
+                        <select matNativeControl formControlName="salutation" required>
+                            <option class="option-display"></option>
+                            <option *ngFor="let item of salutationTypes" value="{{item}}">{{item}}</option>
+                        </select>
+                        <mat-error *ngFor="let validation of errorMessages.salutation">
+                            <mat-error
+                                *ngIf="profileForm.get('personalDataForm').get('salutation').hasError(validation.type) && (profileForm.get('personalDataForm').get('salutation').dirty || profileForm.get('personalDataForm').get('salutation').touched)">
+                                {{validation.message}}</mat-error>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput type="text" formControlName="fullname" placeholder="Full Name" required>
+                        <mat-hint align="left">Enter Full Name as per PAN Records</mat-hint>
+                        <mat-error *ngFor="let validation of errorMessages.fullname">
+                            <mat-error
+                                *ngIf="profileForm.get('personalDataForm').get('fullname').hasError(validation.type) && (profileForm.get('personalDataForm').get('fullname').dirty || profileForm.get('personalDataForm').get('fullname').touched)">
+                                {{validation.message}}</mat-error>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="details-content">
+                    <mat-form-field>
+                        <mat-label>Select Gender</mat-label>
+                        <select matNativeControl formControlName="gender" required>
+                            <option class="option-display"></option>
+                            <option *ngFor="let item of genderTypes" value="{{item.genderKey}}">{{item.genderValue}}
+                            </option>
+                        </select>
+                        <mat-error *ngFor="let validation of errorMessages.salutation">
+                            <mat-error
+                                *ngIf="profileForm.get('personalDataForm').get('gender').hasError(validation.type) && (profileForm.get('personalDataForm').get('gender').dirty || profileForm.get('personalDataForm').get('gender').touched)">
+                                {{validation.message}}</mat-error>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Date of Birth</mat-label>
+                        <input matInput [matDatepicker]="datePicker" formControlName="dob" placeholder="DD-MMM-YYYY" required>
+                        <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+                        <mat-datepicker #datePicker color="primary" [touchUi]="isHandset$ | async"></mat-datepicker>
+                        <mat-error *ngFor="let validation of errorMessages.dob">
+                            <mat-error
+                                *ngIf="profileForm.get('personalDataForm').get('dob').hasError(validation.type) && (profileForm.get('personalDataForm').get('dob').dirty || profileForm.get('personalDataForm').get('dob').touched)">
+                                {{validation.message}}</mat-error>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput type="tel" formControlName="mobile" placeholder="Mobile No." required>
+                        <mat-error *ngFor="let validation of errorMessages.mobile">
+                            <mat-error
+                                *ngIf="profileForm.get('personalDataForm').get('mobile').hasError(validation.type) && (profileForm.get('personalDataForm').get('mobile').dirty || profileForm.get('personalDataForm').get('mobile').touched)">
+                                {{validation.message}}</mat-error>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="details-content">
+                    <mat-form-field>
+                        <input matInput type="email" formControlName="email" placeholder="Email ID" required>
+                        <mat-error *ngFor="let validation of errorMessages.email">
+                            <mat-error
+                                *ngIf="profileForm.get('personalDataForm').get('email').hasError(validation.type) && (profileForm.get('personalDataForm').get('email').dirty || profileForm.get('personalDataForm').get('email').touched)">
+                                {{validation.message}}</mat-error>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput type="text" oninput='this.value = this.value.toUpperCase()'
+                            formControlName="pancard" placeholder="Pan Card No." required>
+                        <mat-hint align="start">Enter Full Name as per PAN records</mat-hint>
+                        <mat-error *ngFor="let validation of errorMessages.pancard">
+                            <mat-error
+                                *ngIf="profileForm.get('personalDataForm').get('pancard').hasError(validation.type) && (profileForm.get('personalDataForm').get('pancard').dirty || profileForm.get('personalDataForm').get('pancard').touched)">
+                                {{validation.message}}</mat-error>
+                        </mat-error>
+                    </mat-form-field>
+                    <div>
+                        <mat-checkbox color="primary" [formControl]="addAddress" labelPosition="after">
+                            Add My Address Details
+                        </mat-checkbox>
+                        <button mat-icon-button type="button" (click)="addressTooltip.toggle()"
+                            #addressTooltip="matTooltip" matTooltip="{{addressInfo}}" matTooltipClass="tooltipInfo">
+                            <mat-icon class="icons" color="primary">help
+                            </mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div formGroupName="addressDataForm" *ngIf="addAddress.value" class="address-details">
+                <mat-form-field class="route">
+                    <mat-label>Address (Area & Street)</mat-label>
+                    <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="3" cdkAutosizeMaxRows="5"
+                        formControlName="addressDetails" placeholder="Address... Special characters allowed (#/,-)"
+                        required></textarea>
+                    <mat-error *ngFor="let validation of errorMessages.addressDetails">
+                        <mat-error
+                            *ngIf="profileForm.get('addressDataForm').get('addressDetails').hasError(validation.type) && (profileForm.get('addressDataForm').get('addressDetails').dirty || profileForm.get('addressDataForm').get('addressDetails').touched)">
+                            {{validation.message}}</mat-error>
+                    </mat-error>
+                </mat-form-field>
+                <div class="address-subpart">
+                    <mat-form-field class="right-padding">
+                        <input matInput type="text" formControlName="locality" placeholder="Locality" required>
+                        <mat-error *ngFor="let validation of errorMessages.locality">
+                            <mat-error
+                                *ngIf="profileForm.get('addressDataForm').get('locality').hasError(validation.type) && (profileForm.get('addressDataForm').get('locality').dirty || profileForm.get('addressDataForm').get('locality').touched)">
+                                {{validation.message}}</mat-error>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="right-padding">
+                        <input matInput type="text" formControlName="landMark" placeholder="Land Mark">
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput type="text" formControlName="city" placeholder="City/Town/Village" required>
+                        <mat-error *ngFor="let validation of errorMessages.locality">
+                            <mat-error
+                                *ngIf="profileForm.get('addressDataForm').get('city').hasError(validation.type) && (profileForm.get('addressDataForm').get('city').dirty || profileForm.get('addressDataForm').get('city').touched)">
+                                {{validation.message}}</mat-error>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="address-subpart">
+                    <mat-form-field class="right-padding">
+                        <input matInput type="text" formControlName="district" placeholder="District" required>
+                        <mat-error *ngFor="let validation of errorMessages.district">
+                            <mat-error
+                                *ngIf="profileForm.get('addressDataForm').get('district').hasError(validation.type) && (profileForm.get('addressDataForm').get('district').dirty || profileForm.get('addressDataForm').get('district').touched)">
+                                {{validation.message}}</mat-error>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="right-padding">
+                        <mat-label>State</mat-label>
+                        <select matNativeControl formControlName="state" required>
+                            <option class="option-display"></option>
+                            <option *ngFor="let item of states" value="{{item.stateKey}}">{{item.stateValue}}
+                            </option>
+                        </select>
+                        <mat-error *ngFor="let validation of errorMessages.state">
+                            <mat-error
+                                *ngIf="profileForm.get('addressDataForm').get('state').hasError(validation.type) && (profileForm.get('addressDataForm').get('state').dirty || profileForm.get('addressDataForm').get('state').touched)">
+                                {{validation.message}}</mat-error>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput type="text" formControlName="pincode" placeholder="Postal/Pin code" required>
+                        <mat-hint align="start">6 digit Postal code</mat-hint>
+                        <mat-error *ngFor="let validation of errorMessages.pincode">
+                            <mat-error
+                                *ngIf="profileForm.get('addressDataForm').get('pincode').hasError(validation.type) && (profileForm.get('addressDataForm').get('pincode').dirty || profileForm.get('addressDataForm').get('pincode').touched)">
+                                {{validation.message}}</mat-error>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="buttons-group form-sub-padding">
+                <button mat-flat-button type="submit" [disabled]="!profileForm.valid" color="primary">Save</button>
+                <button mat-flat-button type="submit" color="warn">Cancel</button>
+            </div>
+        </form>
+    </div>
 </div>

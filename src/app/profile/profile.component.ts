@@ -1,13 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { MomentDateAdapter } from '@angular/material-moment-adapter';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
 import { ValidationMessages } from '../validations/validation.messages';
 import { GENDER_TYPES, SALUTATION_TYPES } from '../constants/app.constants';
 import { STATES } from '../constants/states.constants';
+import { CommonService } from '../service/common.service';
+import { DATE_DD_MMM_YYYY_FORMAT } from '../common/date-formats/date.format';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  styleUrls: ['./profile.component.scss'],
+  providers: [
+    { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
+    { provide: MAT_DATE_FORMATS, useValue: DATE_DD_MMM_YYYY_FORMAT },
+  ]
 })
 export class ProfileComponent implements OnInit {
 
@@ -18,9 +29,16 @@ export class ProfileComponent implements OnInit {
   states = STATES;
   addAddress = new FormControl(false);
   image = "../../assets/img/profile.svg";
+  addressInfo = "Select this option to add your address details."
+  handSet = '';
 
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(
+      map(result => result.matches),
+      shareReplay()
+    );
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private breakpointObserver: BreakpointObserver, private commonService: CommonService) { }
 
   ngOnInit(): void {
     this.initializeForms();
@@ -56,7 +74,6 @@ export class ProfileComponent implements OnInit {
   }
 
   modifyAddressForm(val: boolean) {
-
     let addressData = this.fb.group({
       addressDetails: ['', Validators.compose([
         Validators.required, Validators.pattern('^([A-Za-z0-9#/,-]+\\s)*[A-Za-z0-9#/,-]+$')
@@ -83,13 +100,20 @@ export class ProfileComponent implements OnInit {
   }
 
   onFileChange($event) {
-    if ($event.target.files[0] && $event.target.files && $event.target.files[0].tyle !==null) {
+    if ($event.target.files[0] && $event.target.files && $event.target.files[0].tyle !== null) {
       let file = $event.target.files[0];
       let reader = new FileReader();
       reader.readAsDataURL(file);
+
       reader.onload = (event) => {
-        this.image = event.target.result as string;
+        let result = event.target.result as string;
+        this.commonService.imageUpload(result);
+        this.image = result;
       }
     }
+  }
+
+  updateProfile(profileForm: any) {
+
   }
 }
