@@ -5,12 +5,15 @@ import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/materia
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import * as _moment from 'moment';
+import { default as _rollupMoment } from 'moment';
 import { ValidationMessages } from '../validations/validation.messages';
 import { GENDER_TYPES, SALUTATION_TYPES } from '../constants/app.constants';
 import { STATES } from '../constants/states.constants';
 import { CommonService } from '../service/common.service';
 import { DATE_DD_MMM_YYYY_FORMAT } from '../common/date-formats/date.format';
-
+ 
+const moment = _rollupMoment || _moment;
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',

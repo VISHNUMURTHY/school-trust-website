@@ -20,6 +20,13 @@ import { DonateComponent } from './donate/donate.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AddressComponent } from './address/address.component';
 import { FileEventsDirective } from './directives/file-events.directive';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { ResourceNotFoundComponent } from './resource-not-found/resource-not-found.component';
+import { NavigateComponent } from './navigate/navigate.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { UserComponent } from './user/user.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +42,14 @@ import { FileEventsDirective } from './directives/file-events.directive';
     DonateComponent,
     ProfileComponent,
     AddressComponent,
-    FileEventsDirective
+    FileEventsDirective,
+    UserDashboardComponent,
+    ResourceNotFoundComponent,
+    NavigateComponent,
+    DashboardComponent,
+    UserComponent,
+    AdminComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,

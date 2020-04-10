@@ -20,7 +20,8 @@
     ],
     "types": [
       "google-libphonenumber"
-    ]
+    ],
+    "allowSyntheticDefaultImports": true
   },
   "angularCompilerOptions": {
     "enableIvy": true,
