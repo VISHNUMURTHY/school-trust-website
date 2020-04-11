@@ -4,6 +4,7 @@
 
 .sidenav {
   width: 200px;
+  display: none;
 }
 
 .sidenav .mat-toolbar {
@@ -14,4 +15,45 @@
   position: sticky;
   top: 0;
   z-index: 1;
+}
+
+mat-toolbar {
+  background: darkblue;
+  color: white;
+  padding: 0 24px;
+}
+
+button {
+  padding-right: 16px;
+}
+
+.mat-list-base .mat-list-item {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.sidenav-content {
+  display: flex;
+
+  & .mat-list-base {
+    padding-top: 0;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  mat-toolbar {
+    padding: 0 16px;
+  }
+
+  .sidenav {
+    display: block;
+  }
+
+  .sidenav-content {
+    display: block;
+
+    & mat-nav-list {
+      display: none;
+    }
+  }
 }

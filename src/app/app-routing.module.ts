@@ -12,6 +12,7 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 const routes: Routes = [{ path: 'home', component: HomeComponent },
@@ -21,11 +22,20 @@ const routes: Routes = [{ path: 'home', component: HomeComponent },
 { path: 'contact-us', component: ContactUsComponent },
 { path: 'donate', component: DonateComponent },
 { path: 'profile', component: ProfileComponent },
-{ path: 'user', component: UserComponent },
-{ path: 'user-dashboard', component: UserDashboardComponent },
-{ path: 'admin', component: AdminComponent },
-{ path: 'admin-dashboard', component: AdminDashboardComponent },
-{ path: '', redirectTo: '/home', pathMatch: 'full' },
+{
+  path: 'user', component: UserComponent, children: [
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+    { path: 'dashboard', component: DashboardComponent },
+    { path: 'profile', component: ProfileComponent }
+  ]
+},
+{
+  path: 'admin', component: AdminComponent, children: [
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+    { path: 'dashboard', component: DashboardComponent }
+  ]
+},
+{ path: '', redirectTo: 'home', pathMatch: 'full' },
 { path: '**', component: ResourceNotFoundComponent }];
 
 @NgModule({
