@@ -6,14 +6,14 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import * as _moment from 'moment';
-import { default as _rollupMoment } from 'moment';
+import { default as _rollupMoment__default } from 'moment';
 import { ValidationMessages } from '../validations/validation.messages';
 import { GENDER_TYPES, SALUTATION_TYPES } from '../constants/app.constants';
 import { STATES } from '../constants/states.constants';
 import { CommonService } from '../service/common.service';
 import { DATE_DD_MMM_YYYY_FORMAT } from '../common/date-formats/date.format';
  
-const moment = _rollupMoment || _moment;
+const moment = _rollupMoment__default || _moment;
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -117,6 +117,6 @@ export class ProfileComponent implements OnInit {
   }
 
   updateProfile(profileForm: any) {
-
+    console.log(profileForm);
   }
 }

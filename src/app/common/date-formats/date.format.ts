@@ -1,6 +1,6 @@
 export const DATE_DD_MMM_YYYY_FORMAT = {
     parse: {
-        dateInput: 'LL',
+        dateInput: 'DD-MMM-YYYY',
     },
     display: {
         dateInput: 'DD-MMM-YYYY',

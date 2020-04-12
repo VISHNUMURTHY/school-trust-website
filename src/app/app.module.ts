@@ -27,6 +27,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { ChartsComponent } from './charts/charts.component';
+import { PieChartComponent } from './charts/pie-chart/pie-chart.component';
+import { LineChartComponent } from './charts/line-chart/line-chart.component';
+import { BarChartComponent } from './charts/bar-chart/bar-chart.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +53,11 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     DashboardComponent,
     UserComponent,
     AdminComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    ChartsComponent,
+    PieChartComponent,
+    LineChartComponent,
+    BarChartComponent
   ],
   imports: [
     BrowserModule,
