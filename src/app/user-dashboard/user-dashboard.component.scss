@@ -1,23 +1,23 @@
 :host {
-    background: white;
-    flex-grow: 1;
-  }
-  
-  .grid-container {
-    margin: 40px 40px 20px;
-  }
-  
-  .dashboard-card {
-    
-  }
-  
-  .more-button {
-    position: absolute;
-    top: 5px;
-    right: 10px;
-  }
-  
-  .dashboard-card-content {
-    text-align: center;
+  background: white;
+  flex-grow: 1;
+}
 
-  }
+.grid-container {
+  margin: 40px 40px 20px;
+}
+
+.dashboard-card {
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5), 0px 2px 5px 0px rgba(0, 0, 0, 0.54), 0px 1px 3px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 4px;
+}
+
+.dashboard-card-header {
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.dashboard-card-content {
+  padding: 12px 16px;
+}
