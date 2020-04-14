@@ -1,4 +1,14 @@
-.base-chart{
-    width: 100%;
+.base-chart {
+    position: relative;
     height: 100%;
+    width: 100%;
+    padding: 0;
+}
+
+.svg-base {
+    position: absolute;
+    height: auto;
+    width: 100%;
+    left: 0;
+    top: 0;
 }
