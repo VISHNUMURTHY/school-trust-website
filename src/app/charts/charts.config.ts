@@ -1,11 +1,11 @@
-export interface Data{
+export interface ChartData{
     name?: string|number,
     value: number,
     options?: any
 }
 
 export interface DataSeries{
-    series: Data[];
+    series: ChartData[];
     type: string;
 }
 

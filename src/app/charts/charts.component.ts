@@ -1,6 +1,8 @@
 import { Component, OnInit, AfterContentInit, ViewChild, ElementRef, AfterViewChecked, AfterViewInit, ChangeDetectionStrategy, Input } from '@angular/core';
 import * as d3 from 'd3';
 import { PieChartComponent } from './pie-chart.component';
+import { ChartData } from './charts.config';
+import { SAMPLE_DATA } from './charts.sample.data';
 @Component({
   selector: 'app-charts',
   templateUrl: './charts.component.html',
@@ -12,7 +14,7 @@ export class ChartsComponent extends PieChartComponent implements OnInit, AfterV
   @ViewChild('chart') private chartContainer: ElementRef;
 
   @Input('data')
-  data: number[] = [50, 50];
+  data: ChartData[] = SAMPLE_DATA;
 
   @Input('lables')
   labels: string[];
@@ -33,7 +35,10 @@ export class ChartsComponent extends PieChartComponent implements OnInit, AfterV
   innerRadius: number = 52;
 
   @Input("colorSchema")
-  colorSchema: string[] = ['#4daa4a', '#dd7eb8'];
+  colorSchema: string[] = ['blue', 'blue'];
+
+  @Input("pattern")
+  patten: string;
 
   constructor() {
     super();
@@ -43,7 +48,19 @@ export class ChartsComponent extends PieChartComponent implements OnInit, AfterV
 
   ngAfterViewInit() {
     let element = this.chartContainer.nativeElement;
-    if (this.donut)
-      new PieChartComponent().drawDonutChart(this.data, element, this.startAngle, this.endAngle, this.innerRadius, this.colorSchema);
+    let svg = d3.select(element).append('svg')
+      .attr('width', element.offsetWidth)
+      .attr('height', element.offsetHeight || 200);
+      svg.append("defs");
+    if (this.donut) {
+      let total = 0;
+      this.data.forEach(el => {
+        total += el.value;
+      });
+      total = (this.data[0].value / total) * 100;
+      let label = '' + total.toFixed(2) + '%';
+      let subLabel = 'Profile Completed';
+      new PieChartComponent().drawDonutChart(this.data, svg, this.startAngle, this.endAngle, this.innerRadius, this.colorSchema, label, subLabel);
+    }
   }
 }
