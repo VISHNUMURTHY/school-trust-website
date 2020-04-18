@@ -16,7 +16,7 @@ export class ChartsComponent extends PieChartComponent implements OnInit, AfterV
   @Input('data')
   data: ChartData[] = SAMPLE_DATA;
 
-  @Input('lables')
+  @Input('labels')
   labels: string[];
 
   @Input('chartType')
@@ -51,14 +51,14 @@ export class ChartsComponent extends PieChartComponent implements OnInit, AfterV
     let svg = d3.select(element).append('svg')
       .attr('width', element.offsetWidth)
       .attr('height', element.offsetHeight || 200);
-      svg.append("defs");
-    if (this.donut) {
+    svg.append("defs");
+    if (this.donut && this.chartType === 'donut') {
       let total = 0;
       this.data.forEach(el => {
         total += el.value;
       });
       total = (this.data[0].value / total) * 100;
-      let label = '' + total.toFixed(2) + '%';
+      let label = '' + total.toFixed(1) + '%';
       let subLabel = 'Profile Completed';
       new PieChartComponent().drawDonutChart(this.data, svg, this.startAngle, this.endAngle, this.innerRadius, this.colorSchema, label, subLabel);
     }
