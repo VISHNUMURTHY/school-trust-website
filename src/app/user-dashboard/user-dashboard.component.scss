@@ -29,7 +29,29 @@ a:link {
 }
 
 .dashboard-card-content {
-  margin: 12px 16px;
-  max-width: calc(100% - 32px);;
+  margin: 14px 16px;
+  max-width: calc(100% - 32px);
   height: 200px;
+}
+
+@media screen and (max-width: 700px) {
+  .grid-container {
+    margin: 16px;
+    flex-flow: column;
+  }
+
+  .dashboard-card {
+    width: auto;
+    margin-bottom: 16px;
+  }
+
+  a:last-child {
+    margin-bottom: 0;
+  }
+
+  .dashboard-card-content {
+    width: auto;
+    max-width: calc(100% - 32px);
+    height: 200px;
+  }
 }

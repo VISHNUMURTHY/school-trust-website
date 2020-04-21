@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import { ChartData } from './charts.config';
+import { ChartData } from '../common/interfaces/charts.config';
 
 export class PieChartComponent {
 

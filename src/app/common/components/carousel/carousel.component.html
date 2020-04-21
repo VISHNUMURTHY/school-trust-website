@@ -1,0 +1,20 @@
+<div class="carousel">
+    <!-- slides -->
+    <ul class="slides">
+        <li class="slide" *ngFor="let slide of slides; let i = index;" [@slideState]="getAnimationSlideState(i)">
+            <ng-container *ngTemplateOutlet="slideTemplateRef; context: { $implicit: slide }"></ng-container>
+        </li>
+    </ul>
+    <!-- navigations & thumbnails -->
+    <div class="navigations">
+        <button type="button" matRipple matRippleCentered="true" matRippleColor="rgba(0,0,0,0.1)"
+            (click)="select(activeSlides.previous)" *ngIf="slides.length > 1 && isNavigationVisible">
+            <div></div>
+        </button>
+
+        <button type="button" matRipple matRippleCentered="true" matRippleColor="rgba(0,0,0,0.1)"
+            (click)="select(activeSlides.next)" *ngIf="slides.length > 1 && isNavigationVisible">
+            <div></div>
+        </button>
+    </div>
+</div>

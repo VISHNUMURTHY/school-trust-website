@@ -1,4 +1,4 @@
-import { ChartData } from './charts.config';
+import { ChartData } from '../common/interfaces/charts.config';
 
 export const SAMPLE_DATA: ChartData[] = [
     {

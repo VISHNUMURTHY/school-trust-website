@@ -9,19 +9,20 @@
         </div>
     </a>
 
-    <a class="dashboard-card" routerLink="../profile">
+    <div class="dashboard-card">
         <div class="dashboard-card-header">
-            Profile
+            Recent Activities
         </div>
         <mat-divider></mat-divider>
         <div class="dashboard-card-content">
-            <app-charts chartType="donut"></app-charts>
+            <app-carousel [autoPlayDuration]="5000" animation="slide" [isNavigationVisible]="true" [slides]="slides"
+                [slideTemplateRef]="slide"></app-carousel>
         </div>
-    </a>
+    </div>
 
-    <a class="dashboard-card" routerLink="../profile">
+    <a class="dashboard-card">
         <div class="dashboard-card-header">
-            Profile
+            My Donations
         </div>
         <mat-divider></mat-divider>
         <div class="dashboard-card-content">
@@ -29,3 +30,15 @@
         </div>
     </a>
 </div>
+
+<ng-template #slide let-slide>
+    <a [ngStyle]="{
+      'background-size': 'cover',
+      'background-repeat': 'no-repeat',
+      'width': '100%',
+      'height': '100%'
+    }" routerLink="../profile">
+        <img [src]="slide.url">
+        <video [src]="slide.url" autoplay></video>
+    </a>
+</ng-template>

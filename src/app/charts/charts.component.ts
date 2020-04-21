@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterContentInit, ViewChild, ElementRef, AfterViewChecked, AfterViewInit, ChangeDetectionStrategy, Input } from '@angular/core';
 import * as d3 from 'd3';
 import { PieChartComponent } from './pie-chart.component';
-import { ChartData } from './charts.config';
+import { ChartData } from '../common/interfaces/charts.config';
 import { SAMPLE_DATA } from './charts.sample.data';
 @Component({
   selector: 'app-charts',

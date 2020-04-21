@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserDashboardComponent implements OnInit {
 
+  slides = [
+    {
+      url: '/../assets/img/test.png'
+    },
+    {
+      url: '/../assets/videos/sample/file_example_MP4_640_3MG.mp4'
+    }
+  ]
+
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }
