@@ -1,0 +1,22 @@
+<div *ngIf="!isVideo" class="photo-video-main">
+    <ng-container *ngFor="let item of imageList">
+        <div class="photo-video-gallery">
+            <!-- <img [src]="item.src"> -->
+            <div class="description">
+                {{item.description}}kkkkkkkkkkkkkkkkkkkkkkk kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+                kkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+            </div>
+        </div>
+    </ng-container>
+</div>
+<div *ngIf="isVideo" class="photo-video-main">
+    <ng-container *ngFor="let item of videoList">
+        <div class="photo-video-gallery">
+            <video [src]="item.src" autoplay controls></video>
+            <div class="description">
+                {{item.description}}kkkkkkkkkkkkkkkkkkkkkkk kkkkk kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+                kkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+            </div>
+        </div>
+    </ng-container>
+</div>

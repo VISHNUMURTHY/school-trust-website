@@ -13,6 +13,8 @@ import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { RecentActivitiesComponent } from './recent-activities/recent-activities.component';
+import { PhotoVideoGalleryComponent } from './common/components/photo-video-gallery/photo-video-gallery.component';
 
 
 const routes: Routes = [{ path: 'home', component: HomeComponent },
@@ -26,7 +28,14 @@ const routes: Routes = [{ path: 'home', component: HomeComponent },
   path: 'user', component: UserComponent, children: [
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     { path: 'dashboard', component: UserDashboardComponent },
-    { path: 'profile', component: ProfileComponent }
+    { path: 'profile', component: ProfileComponent },
+    {
+      path: 'recent-activities', component: RecentActivitiesComponent, children: [
+        { path: '', redirectTo: 'photo-gallery', pathMatch: 'full' },
+        { path: 'photo-gallery', component: PhotoVideoGalleryComponent },
+        { path: 'video-gallery', component: PhotoVideoGalleryComponent }
+      ]
+    }
   ]
 },
 {

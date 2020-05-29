@@ -32,13 +32,10 @@
 </div>
 
 <ng-template #slide let-slide>
-    <a [ngStyle]="{
-      'background-size': 'cover',
-      'background-repeat': 'no-repeat',
-      'width': '100%',
-      'height': '100%'
-    }" routerLink="../profile">
-        <img [src]="slide.url">
-        <video [src]="slide.url" autoplay></video>
+    <a class="slide" routerLink="../recent-activities">
+        <img [src]="slide.url" *ngIf="!slide.isVideo">
+        <video [src]="slide.url" *ngIf="slide.isVideo" autoplay></video>
     </a>
 </ng-template>
+
+<input #fileInput type="file" (change)="onFileChange($event)">

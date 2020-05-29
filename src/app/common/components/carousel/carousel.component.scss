@@ -1,19 +1,16 @@
 .carousel {
     width: 100%;
     height: 100%;
-    min-height: var(--min-height-carousel);
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
+    position: relative;
 }
 
 .slides {
     position: relative;
     flex-grow: 1;
     overflow: hidden;
-    list-style: none;
-    margin: var(--unit-1);
-    border: 2px solid var(--color-brand-1);
 }
 
 .slide {
@@ -26,12 +23,24 @@
 }
 
 .navigations {
-    display: flex;
-    position: absolute;
-    z-index: 9999;
-    flex-flow: row;
-    align-items: center;
-    justify-content: space-between;
+    button:first-child {
+        top: 50%;
+        margin-top: -20px;
+        left: 0;
+        transform: rotate(135deg);
+        display: flex;
+        align-items: center;
+    }
+
+    button:last-child {
+        top: 50%;
+        margin-top: -20px;
+        margin-left: -41px;
+        left: 100%;
+        transform: rotate(-45deg);
+        display: flex;
+        align-items: center;
+    }
 }
 
 .navigations>div {
@@ -56,6 +65,8 @@
     border-radius: 50%;
     display: flex;
     justify-content: center;
+    position: absolute;
+    z-index: 9999;
 
     & div {
         border: solid black;
@@ -63,14 +74,6 @@
         display: inline-block;
         padding: 3px;
     }
-}
-
-button:first-child div {
-    transform: rotate(135deg);
-}
-
-button:last-child div {
-    transform: rotate(-45deg);
 }
 
 .thumbnails {

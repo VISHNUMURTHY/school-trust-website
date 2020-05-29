@@ -34,6 +34,18 @@ a:link {
   height: 200px;
 }
 
+a.slide {
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+
+  & img,
+  video {
+    height: 100%;
+  }
+}
+
 @media screen and (max-width: 700px) {
   .grid-container {
     margin: 16px;

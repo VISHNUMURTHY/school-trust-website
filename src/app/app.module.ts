@@ -33,6 +33,7 @@ import { PieChartComponent } from './charts/pie-chart/pie-chart.component';
 import { LineChartComponent } from './charts/line-chart/line-chart.component';
 import { BarChartComponent } from './charts/bar-chart/bar-chart.component';
 import { RecentActivitiesComponent } from './recent-activities/recent-activities.component';
+import { PhotoVideoGalleryComponent } from './common/components/photo-video-gallery/photo-video-gallery.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { RecentActivitiesComponent } from './recent-activities/recent-activities
     PieChartComponent,
     LineChartComponent,
     BarChartComponent,
-    RecentActivitiesComponent
+    RecentActivitiesComponent,
+    PhotoVideoGalleryComponent
   ],
   imports: [
     BrowserModule,

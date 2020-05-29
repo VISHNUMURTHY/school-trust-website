@@ -1,1 +1,12 @@
-<p>recent-activities works!</p>
+<div class="recent-activities">
+    <div class="rec-activities-header">Recent Activities</div>
+    <div class="rec-activities-tabs">
+        <nav mat-tab-nav-bar>
+            <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.path" routerLinkActive
+                #rla="routerLinkActive" [active]="rla.isActive">
+                {{link.label}}
+            </a>
+        </nav>
+        <router-outlet></router-outlet>
+    </div>
+</div>
