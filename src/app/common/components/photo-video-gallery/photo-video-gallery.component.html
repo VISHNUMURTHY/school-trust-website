@@ -1,10 +1,9 @@
 <div *ngIf="!isVideo" class="photo-video-main">
     <ng-container *ngFor="let item of imageList">
         <div class="photo-video-gallery">
-            <!-- <img [src]="item.src"> -->
+            <img [src]="item.src" matTooltip="{{item.description}}">
             <div class="description">
-                {{item.description}}kkkkkkkkkkkkkkkkkkkkkkk kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
-                kkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+                {{item.description}}
             </div>
         </div>
     </ng-container>
@@ -12,10 +11,9 @@
 <div *ngIf="isVideo" class="photo-video-main">
     <ng-container *ngFor="let item of videoList">
         <div class="photo-video-gallery">
-            <video [src]="item.src" autoplay controls></video>
+            <video [src]="item.src" autoplay controls matTooltip="{{item.description}}"></video>
             <div class="description">
-                {{item.description}}kkkkkkkkkkkkkkkkkkkkkkk kkkkk kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
-                kkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+                {{item.description}}
             </div>
         </div>
     </ng-container>

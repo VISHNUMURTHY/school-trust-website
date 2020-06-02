@@ -16,7 +16,7 @@
     padding: 12px;
 
     & img {
-        width: inherit;
+        width: 100%;
     }
 
     & video {
@@ -27,6 +27,17 @@
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
-       width: calc(100% - 24px);
+        width: calc(100% - 24px);
+    }
+}
+
+@media screen and (max-width:700px) {
+    .photo-video-gallery {
+        max-width: calc(100% - 24px);
+        width: calc(100% - 24px);
+
+        & .description {
+            width: 100%;
+        }
     }
 }

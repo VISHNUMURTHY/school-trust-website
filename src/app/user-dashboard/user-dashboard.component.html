@@ -20,9 +20,19 @@
         </div>
     </div>
 
-    <a class="dashboard-card">
+    <a class="dashboard-card" routerLink="../donations">
         <div class="dashboard-card-header">
             My Donations
+        </div>
+        <mat-divider></mat-divider>
+        <div class="dashboard-card-content">
+            <app-charts chartType="donut"></app-charts>
+        </div>
+    </a>
+
+    <a class="dashboard-card" routerLink="../complaints-queries">
+        <div class="dashboard-card-header">
+            My Complaints/Queries
         </div>
         <mat-divider></mat-divider>
         <div class="dashboard-card-content">

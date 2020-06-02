@@ -34,6 +34,8 @@ import { LineChartComponent } from './charts/line-chart/line-chart.component';
 import { BarChartComponent } from './charts/bar-chart/bar-chart.component';
 import { RecentActivitiesComponent } from './recent-activities/recent-activities.component';
 import { PhotoVideoGalleryComponent } from './common/components/photo-video-gallery/photo-video-gallery.component';
+import { DonationsTrackComponent } from './donations-track/donations-track.component';
+import { ComplaintsQueriesComponent } from './complaints-queries/complaints-queries.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +65,9 @@ import { PhotoVideoGalleryComponent } from './common/components/photo-video-gall
     LineChartComponent,
     BarChartComponent,
     RecentActivitiesComponent,
-    PhotoVideoGalleryComponent
+    PhotoVideoGalleryComponent,
+    DonationsTrackComponent,
+    ComplaintsQueriesComponent
   ],
   imports: [
     BrowserModule,

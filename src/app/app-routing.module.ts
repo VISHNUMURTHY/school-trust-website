@@ -15,6 +15,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RecentActivitiesComponent } from './recent-activities/recent-activities.component';
 import { PhotoVideoGalleryComponent } from './common/components/photo-video-gallery/photo-video-gallery.component';
+import { DonationsTrackComponent } from './donations-track/donations-track.component';
+import { ComplaintsQueriesComponent } from './complaints-queries/complaints-queries.component';
 
 
 const routes: Routes = [{ path: 'home', component: HomeComponent },
@@ -35,7 +37,9 @@ const routes: Routes = [{ path: 'home', component: HomeComponent },
         { path: 'photo-gallery', component: PhotoVideoGalleryComponent },
         { path: 'video-gallery', component: PhotoVideoGalleryComponent }
       ]
-    }
+    },
+    { path: 'donations', component: DonationsTrackComponent },
+    { path: 'complaints-queries', component: ComplaintsQueriesComponent }
   ]
 },
 {
